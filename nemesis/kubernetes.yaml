@@ -103,41 +103,6 @@ spec:
         - containerPort: 9080
         # end::containerPort2[]
 ---
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: inventory-deployment
-  # tag::labels3[]
-  labels:
-    # end::labels3[]
-    # tag::app4[]
-    app: inventory
-    # end::app4[]
-spec:
-  selector:
-    matchLabels:
-      # tag::app5[]
-      app: inventory
-      # end::app5[]
-  template:
-    metadata:
-      # tag::labels4[]
-      labels:
-        # end::labels4[]
-        # tag::app6[]
-        app: inventory
-        # end::app6[]
-    spec:
-      containers:
-        - name: inventory-container
-          # tag::image2[]
-          image: inventory:1.0-SNAPSHOT
-          # end::image2[]
-          ports:
-            # tag::containerPort2[]
-            - containerPort: 9080
-          # end::containerPort2[]
----
 apiVersion: v1
 kind: Service
 metadata:

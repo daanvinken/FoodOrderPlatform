@@ -16,7 +16,7 @@ package io.openliberty.guides.order;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.ApplicationPath;
 
-@ApplicationPath("order")
+@ApplicationPath("api")
 public class OrderApplication extends Application {
 
 }

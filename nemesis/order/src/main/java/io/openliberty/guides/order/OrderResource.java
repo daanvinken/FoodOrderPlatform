@@ -13,20 +13,61 @@
 package io.openliberty.guides.order;
 
 // CDI
+import io.openliberty.guides.order.model.Order;
+
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 // JAX-RS
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
 @RequestScoped
-@Path("/new")
+@Path("/orders")
 public class OrderResource {
+  private static final Logger logger = LogManager.getLogger(OrderResource.class);
+
+  private static Map<Integer, Order> orders = new HashMap<Integer, Order>();
+
+  @POST
+  @Consumes(MediaType.APPLICATION_JSON)
+  @Produces(MediaType.APPLICATION_JSON)
+  @Path("/create")
+  public Response CreateOrder(Order order) {
+    System.out.println("Received new order");
+
+    orders.put(order.id, order);
+    logger.info("New order created");
+    logger.info(order.toString());
+
+    String resp = "{\n" +
+            "  \"status\": \"placed\",\n" +
+            "  \"id\": 2,\n" +
+            "  \"restaurantId\": 1,\n" +
+            "  \"totalAmount\": 32.97,\n" +
+            "  \"userId\": 4,\n" +
+            "  \"updatedAt\": \"2020-06-03T09:00:58.034Z\",\n" +
+            "  \"createdAt\": \"2020-06-03T09:00:58.034Z\"\n" +
+            "}";
+    return Response.ok(resp, MediaType.APPLICATION_JSON).status(201).build();
+  }
 
   @GET
-  public Response send_order_ok() {
+  @Produces(MediaType.APPLICATION_JSON)
+  @Path("/{id}")
+  public Response getOrderStatus(
+      @PathParam("id") int order_id) {
     return Response.ok("Hallo").build();
   }
+
 }
