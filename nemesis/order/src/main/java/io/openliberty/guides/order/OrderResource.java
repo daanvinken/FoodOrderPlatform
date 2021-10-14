@@ -46,9 +46,15 @@ public class OrderResource {
   public Response CreateOrder(Order order) {
     System.out.println("Received new order");
 
+
+
     orders.put(order.id, order);
     logger.info("New order created");
     logger.info(order.toString());
+
+
+    System.out.println("Pushing order to DB.");
+    OrderHandler.run();
 
     String resp = "{\n" +
             "  \"status\": \"placed\",\n" +

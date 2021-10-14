@@ -9,7 +9,7 @@ class OrderItem{
     public int quantity;
 }
 
-public class Order{
+public class Order {
     public int id;
     public int restaurantId;
     public List<OrderItem> OrderItems;
