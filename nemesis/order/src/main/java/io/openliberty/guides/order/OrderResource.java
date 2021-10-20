@@ -11,8 +11,6 @@
  *******************************************************************************/
  // end::copyright[]
 package io.openliberty.guides.order;
-
-// CDI
 import io.openliberty.guides.order.model.Order;
 
 import javax.enterprise.context.RequestScoped;
@@ -37,24 +35,19 @@ import org.apache.logging.log4j.LogManager;
 public class OrderResource {
   private static final Logger logger = LogManager.getLogger(OrderResource.class);
 
-  private static Map<Integer, Order> orders = new HashMap<Integer, Order>();
-
   @POST
   @Consumes(MediaType.APPLICATION_JSON)
   @Produces(MediaType.APPLICATION_JSON)
   @Path("/create")
   public Response CreateOrder(Order order) {
-    System.out.println("Received new order");
-
-
-
-    orders.put(order.id, order);
-    logger.info("New order created");
+    System.out.println(String.format("Received new order (user_id = %d)", order.userId));
     logger.info(order.toString());
-
-
+    System.out.println(order.toString());
+    System.out.println("Total amount of order:");
+    System.out.println(order.getTotalAmount());
     System.out.println("Pushing order to DB.");
-    OrderHandler.run();
+
+    OrderHandler.insertOrderDB(order);
 
     String resp = "{\n" +
             "  \"status\": \"placed\",\n" +

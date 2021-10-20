@@ -1,5 +1,6 @@
 package io.openliberty.guides.order.model;
 
+import javax.json.Json;
 import java.util.List;
 
 class OrderItem{
@@ -10,8 +11,14 @@ class OrderItem{
 }
 
 public class Order {
-    public int id;
     public int restaurantId;
-    public List<OrderItem> OrderItems;
+    public Json OrderItems;
     public double totalAmount;
+    public int userId;
+
+    public double getTotalAmount() {
+        return this.totalAmount;
+    }
+
+
 }
