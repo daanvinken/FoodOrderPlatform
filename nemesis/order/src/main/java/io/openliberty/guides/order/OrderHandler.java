@@ -8,7 +8,7 @@ public class OrderHandler {
         try {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/postgresdb",
+                    .getConnection("jdbc:postgresql://10.106.117.51:5432/postgresdb",
                             "admin", "test123");
         } catch (Exception e) {
             e.printStackTrace();

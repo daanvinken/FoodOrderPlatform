@@ -73,7 +73,7 @@ public class OrderResource {
   @Path("/{id}")
   public Response getOrderStatus(
       @PathParam("id") int order_id) {
-    return Response.ok("Hallo").build();
+    return Response.ok("Hallootjes").build();
   }
 
 }
