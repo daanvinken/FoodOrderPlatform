@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "518b3ea7-3ea9-444c-88b4-10b7997e4454",
+		"name": "nemesis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "fetch order",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"restaurantId\": 1,\n    \"orderitems\": [\n        {\n            \"name\": \"spaghetti carbonara\",\n            \"price\": 9.99,\n            \"id\": 1,\n            \"quantity\": 1\n        },\n        {\n            \"name\": \"Spaghetti aglio e olio\",\n            \"price\": 8.99,\n            \"id\": 2,\n            \"quantity\": 2\n        },\n        {\n            \"name\": \"Gorgeous Cotton Pizza\",\n            \"price\": 5,\n            \"id\": 10,\n            \"quantity\": 1\n        }\n    ],\n    \"totalAmount\": 32.97\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.49.2:31001/api/orders/1",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"49",
+						"2"
+					],
+					"port": "31001",
+					"path": [
+						"api",
+						"orders",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create order",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"restaurantId\": 1,\n    \"orderitems\": [\n        {\n            \"name\": \"spaghetti carbonara\",\n            \"price\": 9.99,\n            \"id\": 1,\n            \"quantity\": 1\n        },\n        {\n            \"name\": \"Spaghetti aglio e olio\",\n            \"price\": 8.99,\n            \"id\": 2,\n            \"quantity\": 2\n        },\n        {\n            \"name\": \"Gorgeous Cotton Pizza\",\n            \"price\": 5,\n            \"id\": 10,\n            \"quantity\": 1\n        }\n    ],\n    \"totalAmount\": 32.97\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.49.2:31001/api/orders/create",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"49",
+						"2"
+					],
+					"port": "31001",
+					"path": [
+						"api",
+						"orders",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get system properties",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.49.2:31000/system/properties",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"49",
+						"2"
+					],
+					"port": "31000",
+					"path": [
+						"system",
+						"properties"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
