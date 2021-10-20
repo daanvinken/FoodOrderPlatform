@@ -1,4 +1,4 @@
-/home/daan/KubeJavaURLShortener/nemesis/order/src/main/java/io/openliberty/guides/order/OrderHandler.java
+/home/daan/KubeJavaURLShortener/nemesis/order/src/main/java/io/openliberty/guides/order/DBHandler.java
 /home/daan/KubeJavaURLShortener/nemesis/order/src/main/java/io/openliberty/guides/order/model/Order.java
 /home/daan/KubeJavaURLShortener/nemesis/order/src/main/java/io/openliberty/guides/order/OrderApplication.java
 /home/daan/KubeJavaURLShortener/nemesis/order/src/main/java/io/openliberty/guides/order/OrderResource.java
